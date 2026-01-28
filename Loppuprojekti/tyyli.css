@@ -1,0 +1,235 @@
+/* --- Kaikki elementit noudattavat tätä sääntöä --- */
+* {
+    box-sizing: border-box; /* Lasketaan padding ja border mukaan elementin kokoon */
+    font-family: "Segoe UI", system-ui, sans-serif; /* Fontti koko sivulle */
+}
+
+/* --- Taustat ja yleiset tyylit keholle --- */
+body {
+    margin: 0;               /* Poistetaan oletusmarginaali */
+    min-height: 100vh;       /* Vähintään koko ruudun korkeus */
+    background: #0e0e14;     /* Tumma tausta */
+    color: #e6e6f0;          /* Vaalea teksti */
+}
+
+/* --- Koko sivun asettelu kahteen sarakkeeseen --- */
+.layout {
+    display: grid;                 /* Käytetään ruudukkoa */
+    grid-template-columns: 240px 1fr; /* Vasen sarake 240px, oikea vie loput */
+    min-height: 100vh;             /* Korkeus koko näytölle */
+}
+
+/* --- Vasen palkki eli sidebar --- */
+.sidebar {
+    background: #7f2ccb;       /* Lila tausta */
+    padding: 30px 20px;        /* Sisäiset marginaalit */
+    color: white;               /* Teksti valkoiseksi */
+    display: flex;              /* Käytetään flexboxia sisällä */
+    flex-direction: column;     /* Laitetaan sisältö päällekkäin */
+    gap: 6px;                   /* Pieni väli elementtien väliin */
+}
+
+/* Otsikon tyylit sidebarissa */
+.sidebar h1 {
+    margin: 0;                  /* Ei ylimääräisiä marginaaleja */
+    font-size: 26px;            /* Iso fontti */
+    letter-spacing: 1px;        /* Kirjainten väliä vähän lisää */
+    color: white;               /* Teksti valkoiseksi */
+}
+
+/* Alaotsikko */
+.sidebar p {
+    margin: 0;
+    font-size: 14px;            /* Pieni teksti */
+}
+
+/* Sidebar korkeus */
+.sidebar {
+    position: relative;         /* Ei scrollaa mukana */
+    height: auto;               /* Korkeus automaattinen */
+}
+
+/* --- Navigaatiolinkit --- */
+.nav-links {
+    margin-top: 20px;          /* Väli yläpuolelta */
+    display: flex;             
+    flex-direction: column;    /* Linkit päällekkäin */
+    gap: 10px;                 /* Väli linkkien välissä */
+}
+
+.nav-links a {
+    text-decoration: none;           /* Poistaa alleviivauksen */
+    color: #ffffff;                  /* Valkoinen teksti */
+    padding: 10px 12px;              /* Sisämarginaalit */
+    border-radius: 10px;             /* Pyöristetyt kulmat */
+    background: rgba(0, 0, 0, 0.15); /* Hieman läpinäkyvä tausta */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Hento reunus */
+    font-weight: 600;                /* Litteä mutta näkyvä fontti */
+    transition: 0.15s ease;          /* Pehmeä animaatio hoverissa */
+}
+
+.nav-links a:hover {
+    background: rgba(0, 0, 0, 0.35); /* Tummentuu hiiren päällä */
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateX(4px);     /* Liikkuu vähän oikealle */
+}
+
+.nav-links a:active {
+    transform: translateX(2px) scale(0.98); /* Pieni "painallus" efekti */
+}
+
+/* --- Sisältöalue (oikea puoli) --- */
+main {
+    margin: 40px;  /* Etäisyys sivun reunasta */
+    padding: 20px; /* Sisäiset marginaalit */
+}
+
+/* Lomakkeet ja listat */
+.form-section,
+.list-section {
+    margin-bottom: 35px;            /* Väli alapuolella */
+    background: #1e1e2d;            /* Tumma laatikko */
+    border-radius: 14px;            /* Pyöristetyt kulmat */
+    padding: 25px;                   /* Sisämarginaalit */
+    border: 1px solid #2e2142;      /* Hento reunus */
+}
+
+/* Etusivun laatikko */
+.front-page {
+    margin-bottom: 35px;
+    background: #1e1e2d;
+    border-radius: 14px;
+    padding: 25px;
+    border: 1px solid #2e2142;
+
+    display: flex;              /* Flexbox keskitykseen */
+    flex-direction: column;     
+    align-items: center;
+    justify-content: center;
+    text-align: center;         /* Teksti keskelle */
+}
+
+/* Otsikoiden tyylit */
+h2, h3, h1 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #d6b8ff;
+}
+
+/* Lomakkeet */
+form {
+    display: flex;
+    flex-direction: column;  /* Päällekkäin */
+    gap: 20px;               /* Väli elementtien välissä */
+}
+
+/* Lomakkeen labelit */
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #cdb6ff;
+}
+
+/* Tekstikentät ja salasana */
+input[type="text"],
+input[type="password"] {   /* Nyt salasanakenttä näyttää samalta kuin käyttäjätunnus */
+    padding: 12px 14px;
+    font-size: 16px;
+    background: #15151f;  /* Tumma kenttä */
+    color: white;         /* Valkoinen teksti */
+    border: 1px solid #3a2c52;
+    border-radius: 8px;
+}
+
+/* Focus-tila eli kun kirjoittaa */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;        /* Ei oletusreunusta */
+    border-color: #9b59ff; /* Korostus violetti */
+}
+
+/* Lomakkeiden napit */
+button {
+    align-self: flex-start; 
+    padding: 12px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #9b59ff;  /* Violetti */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;       /* Hiiren kursori muuttuu kädeksi */
+}
+
+/* Hover-efekti */
+button:hover {
+  transform: scale(1.08);  /* Pieni suurennus */
+  box-shadow: 0 0 18px rgba(88,101,242,0.7); /* Hehku */
+}
+
+/* Ainesosalistat */
+.aineslista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aineslista li {
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    background: #15151f;
+    border-radius: 8px;
+    border: 1px solid #2e2142;
+}
+
+/* --- Responsiivisuus pienemmille näytöille --- */
+@media screen and (max-width: 800px) {
+
+    /* Layout yksisarakkeiseksi */
+    .layout {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    /* Sidebar muuttuu top-bariksi */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;  
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;  
+        padding: 10px 15px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar h1 {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    .sidebar p {
+        display: none; /* Piilotetaan pienellä ruudulla */
+    }
+
+    /* Linkit vaakasuoraan */
+    .nav-links {
+        margin-top: 0;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    main {
+        margin: 0 10px;
+        padding: 10px;
+    }
+
+    .form-section,
+    .list-section,
+    .front-page {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+}
