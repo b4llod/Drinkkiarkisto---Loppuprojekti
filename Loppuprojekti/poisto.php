@@ -1,8 +1,3 @@
-<!--    Tämä tiedosto on Niklas Jurvelinin tekemä loppuprojektia varten -->
-<!-- 
-        Tässä tiedostossa toteutetaan drinkin poisto 
--->
-
 <?php
 session_start();
 require_once "yhteys.php";

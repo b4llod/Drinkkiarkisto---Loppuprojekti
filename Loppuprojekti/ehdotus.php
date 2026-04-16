@@ -24,7 +24,6 @@ if (isset($_POST["lisaa"])) {
     $aines2 = $_POST["aines2"];
     $aines3 = $_POST["aines3"];
 
-
     $maara1 = trim($_POST["maara1"]);
     $maara2 = trim($_POST["maara2"]);
     $maara3 = trim($_POST["maara3"]);
@@ -76,7 +75,7 @@ if (isset($_POST["lisaa"])) {
             }
 
             $lisaaAines->close();
-            $ilmoitus = "Resepti lisätty.";
+            $ilmoitus = "Resepti ehdotus lähetetty.";
         }
     }
 }

@@ -2,7 +2,6 @@
 session_start();
 require_once "yhteys.php";
 
-
 $tulokset = [];
 $haku = "";
 $hakutyyppi = "nimi";
@@ -21,6 +20,7 @@ if (isset($_POST["hae"])) {
                     FROM drinkki d
                     LEFT JOIN drinkki_ainesosa da ON d.drinkki_id = da.drinkki_id
                     LEFT JOIN ainesosa a ON da.ainesosa_id = a.ainesosa_id
+                    WHERE d.hyvaksytty = 1
                     ORDER BY d.nimi";
             $stmt = $yhteys->prepare($sql);
         }
@@ -31,7 +31,7 @@ if (isset($_POST["hae"])) {
                     FROM drinkki d
                     LEFT JOIN drinkki_ainesosa da ON d.drinkki_id = da.drinkki_id
                     LEFT JOIN ainesosa a ON da.ainesosa_id = a.ainesosa_id
-                    WHERE d.nimi LIKE ?
+                    WHERE d.nimi LIKE ? AND d.hyvaksytty = 1
                     ORDER BY d.nimi";
             $stmt = $yhteys->prepare($sql);
             $param = "%$haku%";
@@ -46,6 +46,7 @@ if (isset($_POST["hae"])) {
                     FROM drinkki d
                     LEFT JOIN drinkki_ainesosa da ON d.drinkki_id = da.drinkki_id
                     LEFT JOIN ainesosa a ON da.ainesosa_id = a.ainesosa_id
+                    WHERE d.hyvaksytty = 1
                     ORDER BY d.nimi";
             $stmt = $yhteys->prepare($sql);
         } 
@@ -54,7 +55,7 @@ if (isset($_POST["hae"])) {
                     FROM drinkki d
                     JOIN drinkki_ainesosa da ON d.drinkki_id = da.drinkki_id
                     JOIN ainesosa a ON da.ainesosa_id = a.ainesosa_id
-                    WHERE a.nimi LIKE ?
+                    WHERE a.nimi LIKE ? AND d.hyvaksytty = 1
                     ORDER BY d.nimi";
             $stmt = $yhteys->prepare($sql);
             $param = "%$haku%";

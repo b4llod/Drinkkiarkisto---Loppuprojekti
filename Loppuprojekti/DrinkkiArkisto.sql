@@ -1,6 +1,3 @@
-CREATE DATABASE IF NOT EXISTS drinkitNiklas;
-USE drinkitNiklas;
-
 CREATE TABLE IF NOT EXISTS kayttaja (
     kayttaja_id INT AUTO_INCREMENT PRIMARY KEY,
     kayttajatunus VARCHAR(50) NOT NULL,

@@ -2,7 +2,7 @@
 $palvelin = "localhost";
 $kayttaja = "root";
 $salasana = "";
-$tietokanta = "drinkitNiklas";
+$tietokanta = "lop_drinkitniklas";
 
 $yhteys = new mysqli($palvelin, $kayttaja, $salasana, $tietokanta);
 
